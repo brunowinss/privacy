@@ -35,8 +35,9 @@ function App() {
           <SubscriptionPlans data={siteData} />
 
           <div className="feed-container">
-            <PostCard data={siteData} />
-            <PostCard data={siteData} />
+            {siteData.posts.map(post => (
+              <PostCard key={post.id} data={siteData} post={post} />
+            ))}
           </div>
         </div>
       </main>

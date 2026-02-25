@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './AdminPanel.css';
 
-const AdminPanel = ({ siteData, updateField, updateStats, updatePaymentLink, resetData, isAdmin, login, logout }) => {
+const AdminPanel = ({ siteData, updateField, updateStats, updatePaymentLink, addPost, deletePost, resetData, isAdmin, login, logout }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [showLogin, setShowLogin] = useState(false);
     const [code, setCode] = useState('');
@@ -168,6 +168,42 @@ const AdminPanel = ({ siteData, updateField, updateStats, updatePaymentLink, res
                                     onChange={(e) => updateStats('likes', e.target.value)}
                                 />
                             </div>
+                        </div>
+                    </div>
+
+                    <div className="admin-section">
+                        <h4>Gerenciar Postagens / Mídias</h4>
+                        <div className="add-post-form">
+                            <label>Adicionar Nova Mídia (Bloqueada)</label>
+                            <div className="upload-btn-wrapper">
+                                <button className="btn">Enviar Foto do Post</button>
+                                <input type="file" accept="image/*" onChange={(e) => {
+                                    const file = e.target.files[0];
+                                    if (file) {
+                                        const reader = new FileReader();
+                                        reader.onloadend = () => {
+                                            const newPost = {
+                                                id: Date.now(),
+                                                type: 'image',
+                                                locked: true,
+                                                imageUrl: reader.result
+                                            };
+                                            addPost(newPost);
+                                            alert('Postagem adicionada com sucesso!');
+                                        };
+                                        reader.readAsDataURL(file);
+                                    }
+                                }} />
+                            </div>
+                        </div>
+
+                        <div className="posts-list-edit">
+                            {siteData.posts.map(post => (
+                                <div key={post.id} className="post-edit-item">
+                                    <span>Post #{post.id.toString().slice(-4)}</span>
+                                    <button className="delete-post-btn" onClick={() => deletePost(post.id)}>Remover</button>
+                                </div>
+                            ))}
                         </div>
                     </div>
 

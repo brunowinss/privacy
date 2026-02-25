@@ -18,7 +18,11 @@ const DEFAULT_DATA = {
         month1: '',
         month3: '',
         month6: ''
-    }
+    },
+    posts: [
+        { id: 1, type: 'image', locked: true },
+        { id: 2, type: 'image', locked: true }
+    ]
 };
 
 export const useSiteData = () => {
@@ -64,6 +68,20 @@ export const useSiteData = () => {
         }));
     };
 
+    const addPost = (post) => {
+        setSiteData(prev => ({
+            ...prev,
+            posts: [post, ...prev.posts]
+        }));
+    };
+
+    const deletePost = (id) => {
+        setSiteData(prev => ({
+            ...prev,
+            posts: prev.posts.filter(p => p.id !== id)
+        }));
+    };
+
     const resetData = () => {
         setSiteData(DEFAULT_DATA);
     };
@@ -78,5 +96,5 @@ export const useSiteData = () => {
 
     const logout = () => setIsAdmin(false);
 
-    return { siteData, updateField, updateStats, updatePaymentLink, resetData, isAdmin, login, logout };
+    return { siteData, updateField, updateStats, updatePaymentLink, addPost, deletePost, resetData, isAdmin, login, logout };
 };
