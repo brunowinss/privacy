@@ -17,7 +17,7 @@ const DEFAULT_DATA = {
     paymentLinks: {
         month1: 'https://go.tribopay.com.br/mafba',
         month3: 'https://go.tribopay.com.br/yb1e4',
-        month6: 'https://pay.kirvano.com/01e6e666-6539-4782-9001-b8543be981a8'
+        month6: 'https://go.tribopay.com.br/0ywzw'
     },
     posts: [
         { id: 1, type: 'image', locked: true },
