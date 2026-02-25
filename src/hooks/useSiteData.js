@@ -15,9 +15,9 @@ const DEFAULT_DATA = {
     mediaCount: '1.400',
     adminAccessCode: '1234',
     paymentLinks: {
-        month1: 'https://go.tribopay.com.br/nfaszx74qs',
-        month3: '',
-        month6: ''
+        month1: 'https://pay.kirvano.com/fd918a44-d1d6-4fd9-b095-7fa9abaaf064',
+        month3: 'https://pay.kirvano.com/78208bfe-ca46-4f9c-9801-92f1d820bea4',
+        month6: 'https://pay.kirvano.com/01e6e666-6539-4782-9001-b8543be981a8'
     },
     posts: [
         { id: 1, type: 'image', locked: true },
