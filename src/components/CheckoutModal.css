@@ -75,14 +75,14 @@
     line-height: 1.4;
 }
 
-.social-logins {
+.checkout-social-logins {
     display: flex;
     flex-direction: column;
     gap: 12px;
     margin-bottom: 25px;
 }
 
-.social-btn {
+.checkout-social-btn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -96,20 +96,20 @@
     transition: opacity 0.2s;
 }
 
-.social-btn.google {
+.checkout-social-btn.google {
     background: white;
     border: 1px solid #ddd;
     color: #555;
 }
 
-.social-btn.facebook {
+.checkout-social-btn.facebook {
     background: #1877F2;
     color: white;
     border: none;
 }
 
-.social-btn img,
-.social-btn svg {
+.checkout-social-btn img,
+.checkout-social-btn svg {
     width: 20px;
     height: 20px;
 }
@@ -155,12 +155,12 @@
     background-color: white;
 }
 
-.forgot-password {
+.checkout-forgot-password {
     text-align: right;
     margin-bottom: 25px;
 }
 
-.forgot-password a {
+.checkout-forgot-password a {
     color: var(--privacy-orange);
     font-size: 13px;
     font-weight: 700;
@@ -179,14 +179,14 @@
     margin-top: 5px;
 }
 
-.signup-link {
+.checkout-signup-link {
     text-align: center;
     margin-top: 25px;
     font-size: 14px;
     color: var(--privacy-gray);
 }
 
-.signup-link a {
+.checkout-signup-link a {
     color: var(--privacy-orange);
     font-weight: 700;
 }
