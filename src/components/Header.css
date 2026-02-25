@@ -1,111 +1,34 @@
 .navbar {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
   background-color: white;
+  height: 60px;
+  display: flex;
+  align-items: center;
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #f0f0f0;
 }
 
-.top-bar {
-  background: #f8f9fa;
-  color: #333;
-  height: 60px;
-  padding: 0.5rem;
-  display: flex;
-  /* Hidden on desktop in original but shown for clone feel */
+.header-container {
   width: 100%;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-}
-
-.top-bar-content {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  font-size: 11px;
-  text-align: left;
-}
-
-.text-sm.font-semibold {
-  color: var(--primary);
-  font-weight: 700;
-  margin: 0;
-}
-
-.top-bar-content span {
-  color: #666;
-  margin-top: 2px;
-}
-
-.top-bar-content strong {
-  border: 1px solid #333;
-  border-radius: 10px;
-  padding: 0 4px;
-  margin: 0 2px;
-}
-
-.wrapper-container {
-  width: 100%;
-  height: 65px;
-  display: flex;
-  align-items: center;
-  position: relative;
   max-width: var(--container-width);
   margin: 0 auto;
-}
-
-.left-container {
-  position: absolute;
-  left: 16px;
+  padding: 0 16px;
   display: flex;
+  justify-content: center;
   align-items: center;
+  position: relative;
 }
 
-.checkout-back-button {
-  cursor: pointer;
-  color: #333;
+.logo-center img {
+  height: 32px;
 }
 
-.center-container {
-  margin: 0 auto;
-}
-
-.center-container img {
-  height: 38px;
-}
-
-.right-container {
+.globe-right {
   position: absolute;
   right: 16px;
   display: flex;
   align-items: center;
-}
-
-.select-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-#cultureSelectHeader {
-  border: none;
-  background: transparent;
-  font-size: 13px;
-  font-weight: 600;
-  color: #333;
-  padding-right: 25px;
-  -webkit-appearance: none;
+  color: #666;
   cursor: pointer;
-  outline: none;
-}
-
-.select-wrapper-img {
-  position: absolute;
-  right: 0;
-  pointer-events: none;
-  display: flex;
 }

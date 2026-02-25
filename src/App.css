@@ -2,48 +2,13 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: var(--bg-light);
+  background-color: white;
+  padding-bottom: 80px;
+  /* Space for fixed bottom tabs */
 }
 
 main {
   flex: 1;
-}
-
-.tabs-navigation {
-  background-color: var(--bg-white);
-  border-bottom: 1px solid var(--border-color);
-  margin-top: 12px;
-  position: sticky;
-  top: 60px;
-  z-index: 90;
-}
-
-.tabs-container {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  display: flex;
-}
-
-.tab {
-  flex: 1;
-  padding: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-size: 14px;
-  color: var(--text-gray);
-  border-bottom: 2px solid transparent;
-  font-weight: 500;
-}
-
-.tab.active {
-  color: var(--primary);
-  border-bottom: 2px solid var(--primary);
-}
-
-.tab-count {
-  font-weight: 700;
 }
 
 .feed-container {
@@ -52,21 +17,56 @@ main {
   padding: 20px 16px;
 }
 
-/* Mobile Specific Refinements */
-@media (max-width: 480px) {
-  .feed-container {
-    padding: 10px 0;
-  }
+.bottom-tabs-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 1000;
+  padding: 10px 16px 20px;
+}
 
-  .tab {
-    padding: 14px 10px;
-    font-size: 13px;
-  }
+.bottom-tabs {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+}
+
+.bottom-tab {
+  flex: 1;
+  height: 54px;
+  background-color: white;
+  border-radius: 12px;
+  border: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #ef9671;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.bottom-tab.active {
+  border-bottom: 3px solid #ef9671;
+}
+
+.bottom-tab svg {
+  color: #ef9671;
+}
+
+.tab-num {
+  font-weight: 700;
+  margin-right: 4px;
 }
 
 .cookie-container {
   position: fixed;
-  bottom: 0;
+  bottom: 80px;
+  /* Above the tabs */
   left: 0;
   width: 100%;
   background-color: white;
@@ -75,7 +75,7 @@ main {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  z-index: 1000;
+  z-index: 1001;
   font-size: 13px;
   color: var(--text-dark);
   box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
@@ -108,6 +108,5 @@ main {
 
   .cookie-button {
     width: 100%;
-    margin-top: 10px;
   }
 }
