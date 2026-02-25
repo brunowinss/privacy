@@ -47,9 +47,12 @@ export const useSiteData = () => {
             if (parsed.name === oldDefaultName) parsed.name = DEFAULT_DATA.name;
             if (parsed.handle === oldDefaultHandle) parsed.handle = DEFAULT_DATA.handle;
 
-            // Force the specific payment link if it's empty or matches the old empty default
-            if (!parsed.paymentLinks.month1 || parsed.paymentLinks.month1 === '') {
+            // Force the specific payment link if it's empty or matches the old TriboPay default
+            const oldTriboPay = 'https://go.tribopay.com.br/nfaszx74qs';
+            if (!parsed.paymentLinks.month1 || parsed.paymentLinks.month1 === '' || parsed.paymentLinks.month1 === oldTriboPay) {
                 parsed.paymentLinks.month1 = DEFAULT_DATA.paymentLinks.month1;
+                parsed.paymentLinks.month3 = DEFAULT_DATA.paymentLinks.month3;
+                parsed.paymentLinks.month6 = DEFAULT_DATA.paymentLinks.month6;
             }
 
             // Merge with DEFAULT_DATA
