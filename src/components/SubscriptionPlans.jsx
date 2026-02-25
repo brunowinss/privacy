@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import './SubscriptionPlans.css';
+import CheckoutModal from './CheckoutModal';
 
 const SubscriptionPlans = ({ data }) => {
   const [showPromotions, setShowPromotions] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState({ name: '', price: '', url: '' });
 
   if (!data) return null;
 
-  const handlePlanClick = (url) => {
+  const handlePlanClick = (name, price, url) => {
     if (url) {
-      window.open(url, '_blank');
+      setSelectedPlan({ name, price, url });
+      setIsModalOpen(true);
     } else {
       alert('Link de pagamento não configurado pelo dono do site.');
     }
@@ -18,7 +22,7 @@ const SubscriptionPlans = ({ data }) => {
     <div className="subscription-plans">
       <div className="plans-container">
         <h2 className="section-title">Assinaturas</h2>
-        <button className="plan-button main-plan" onClick={() => handlePlanClick(data.paymentLinks?.month1)}>
+        <button className="plan-button main-plan" onClick={() => handlePlanClick('1 mês', 'R$ 29,99', data.paymentLinks?.month1)}>
           <span className="plan-name">1 mês</span>
           <span className="plan-price">R$ 29,99</span>
         </button>
@@ -30,18 +34,26 @@ const SubscriptionPlans = ({ data }) => {
 
         {showPromotions && (
           <div className="promotions-list">
-            <button className="plan-button" onClick={() => handlePlanClick(data.paymentLinks?.month3)}>
+            <button className="plan-button" onClick={() => handlePlanClick('3 meses', 'R$ 89,97', data.paymentLinks?.month3)}>
               <span className="plan-name">3 meses</span>
               <span className="plan-price">R$ 89,97</span>
             </button>
 
-            <button className="plan-button" onClick={() => handlePlanClick(data.paymentLinks?.month6)}>
+            <button className="plan-button" onClick={() => handlePlanClick('6 meses (15% off )', 'R$ 152,95', data.paymentLinks?.month6)}>
               <span className="plan-name">6 meses (15% off )</span>
               <span className="plan-price">R$ 152,95</span>
             </button>
           </div>
         )}
       </div>
+
+      <CheckoutModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        planName={selectedPlan.name}
+        planPrice={selectedPlan.price}
+        paymentUrl={selectedPlan.url}
+      />
     </div>
   );
 };
