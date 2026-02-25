@@ -17,14 +17,10 @@ function App() {
   const handleLogoClick = () => {
     setClickCount(prev => prev + 1);
     if (clickCount + 1 >= 3) {
-      // Trigger login prompt (managed by AdminPanel but we need to show it)
-      // Since AdminPanel handles its own showLogin state, we can use a trick
-      // or just add a global state. For now, let's look at AdminPanel.jsx
-      // It uses a button .admin-trigger. Let's make that button bigger or 
-      // just set showLogin to true via ref or a shared state.
-      // Easiest is to add an 'openLogin' function to useSiteData or similar.
       setClickCount(0);
       window.dispatchEvent(new CustomEvent('open-admin-login'));
+      // Adding a small alert or console log is subtle but helpful if needed.
+      // For now, just making sure the event is fired.
     }
   };
 

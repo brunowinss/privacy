@@ -10,7 +10,7 @@ const DEFAULT_DATA = {
         likes: '75.9K'
     },
     coverImage: 'https://images.unsplash.com/photo-1614850523296-d8c1af93d400?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-    avatarImage: 'https://randomuser.me/api/portraits/women/44.jpg',
+    avatarImage: '/profile.png',
     postsCount: '821',
     mediaCount: '1.400',
     adminAccessCode: '1234',
@@ -31,7 +31,14 @@ export const useSiteData = () => {
         const saved = localStorage.getItem('privacy_clone_data');
         if (saved) {
             const parsed = JSON.parse(saved);
-            // Merge with DEFAULT_DATA to ensure new fields like adminAccessCode exist
+
+            // Migration: If the user still has the old default avatar, force the new one
+            const oldDefaultAvatar = 'https://randomuser.me/api/portraits/women/44.jpg';
+            if (parsed.avatarImage === oldDefaultAvatar || parsed.avatarImage === '/src/assets/profile.png') {
+                parsed.avatarImage = DEFAULT_DATA.avatarImage;
+            }
+
+            // Merge with DEFAULT_DATA
             return { ...DEFAULT_DATA, ...parsed };
         }
         return DEFAULT_DATA;
