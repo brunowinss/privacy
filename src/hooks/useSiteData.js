@@ -5,14 +5,14 @@ const DEFAULT_DATA = {
     handle: '@becabarreto',
     bio: '🍓 Seja bem-vindo ao meu Privacy, aqui você vai encontrar minhas melhores fotos e vídeos exclusivos',
     stats: {
-        posts: '1K',
-        media: '367',
-        likes: '75.9K'
+        posts: '53',
+        media: '26',
+        likes: '37.2k'
     },
     coverImage: '/cover.png',
     avatarImage: '/profile.png',
-    postsCount: '821',
-    mediaCount: '1.400',
+    postsCount: '53',
+    mediaCount: '26',
     adminAccessCode: '1234',
     paymentLinks: {
         month1: 'https://pay.kirvano.com/fd918a44-d1d6-4fd9-b095-7fa9abaaf064',
@@ -54,6 +54,13 @@ export const useSiteData = () => {
                 parsed.paymentLinks.month3 = DEFAULT_DATA.paymentLinks.month3;
                 parsed.paymentLinks.month6 = DEFAULT_DATA.paymentLinks.month6;
             }
+
+            // Migration: Force stats update if they match the old defaults
+            if (parsed.stats.posts === '1K') parsed.stats.posts = DEFAULT_DATA.stats.posts;
+            if (parsed.stats.media === '367') parsed.stats.media = DEFAULT_DATA.stats.media;
+            if (parsed.stats.likes === '75.9K') parsed.stats.likes = DEFAULT_DATA.stats.likes;
+            if (parsed.postsCount === '821') parsed.postsCount = DEFAULT_DATA.postsCount;
+            if (parsed.mediaCount === '1.400') parsed.mediaCount = DEFAULT_DATA.mediaCount;
 
             // Merge with DEFAULT_DATA
             return { ...DEFAULT_DATA, ...parsed };
