@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const DEFAULT_DATA = {
-    name: 'beca barretoo',
+    name: 'beca barretoooooo',
     handle: '@becabarreto',
     bio: '🍓 Seja bem-vindo ao meu Privacy, aqui você vai encontrar minhas melhores fotos e vídeos exclusivos',
     stats: {
