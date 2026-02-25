@@ -1,0 +1,56 @@
+.subscription-plans {
+  padding: 24px 0;
+  background-color: var(--bg-light);
+}
+
+.plans-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.promotions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.plan-button {
+  width: 100%;
+  background-color: #ef9671;
+  color: white;
+  padding: 16px 24px;
+  border-radius: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.plan-button:hover {
+  background-color: #e68a65;
+}
+
+.plan-button:active {
+  transform: scale(0.99);
+}
+
+.plan-name {
+  font-size: 16px;
+}
+
+.plan-price {
+  font-size: 16px;
+}
