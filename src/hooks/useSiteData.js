@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
 const DEFAULT_DATA = {
-    name: 'Sabrina De Martini',
-    handle: '@sabrinademartini',
+    name: 'beca barreto',
+    handle: '@becabarreto',
     bio: '🍓 Seja bem-vindo ao meu Privacy, aqui você vai encontrar minhas melhores fotos e vídeos exclusivos',
     stats: {
         posts: '1K',
@@ -15,7 +15,7 @@ const DEFAULT_DATA = {
     mediaCount: '1.400',
     adminAccessCode: '1234',
     paymentLinks: {
-        month1: '',
+        month1: 'https://go.tribopay.com.br/nfaszx74qs',
         month3: '',
         month6: ''
     },
@@ -40,8 +40,16 @@ export const useSiteData = () => {
                 parsed.avatarImage = DEFAULT_DATA.avatarImage;
             }
 
-            if (parsed.coverImage === oldDefaultCover) {
-                parsed.coverImage = DEFAULT_DATA.coverImage;
+            // Migration: Force new name, handle and payment link if they are still the old defaults
+            const oldDefaultName = 'Sabrina De Martini';
+            const oldDefaultHandle = '@sabrinademartini';
+
+            if (parsed.name === oldDefaultName) parsed.name = DEFAULT_DATA.name;
+            if (parsed.handle === oldDefaultHandle) parsed.handle = DEFAULT_DATA.handle;
+
+            // Force the specific payment link if it's empty or matches the old empty default
+            if (!parsed.paymentLinks.month1 || parsed.paymentLinks.month1 === '') {
+                parsed.paymentLinks.month1 = DEFAULT_DATA.paymentLinks.month1;
             }
 
             // Merge with DEFAULT_DATA
