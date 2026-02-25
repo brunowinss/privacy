@@ -60,14 +60,6 @@ function App() {
         </div>
       </div>
 
-      <div className="cookie-container">
-        <span className="cookie-description">
-          Privacy utiliza cookies e tecnologias similares para fornecer, manter e melhorar nossos serviços. Se você aceitar, usaremos esses dados para personalização e análises associadas. Para mais informações, leia nossa <a href="#">Política de Privacidade</a>.
-        </span>
-        <button className="cookie-button">
-          Aceitar
-        </button>
-      </div>
 
       <AdminPanel
         siteData={siteData}
