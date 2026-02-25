@@ -16,7 +16,7 @@ const DEFAULT_DATA = {
     adminAccessCode: '1234',
     paymentLinks: {
         month1: 'https://go.tribopay.com.br/mafba',
-        month3: 'https://pay.kirvano.com/78208bfe-ca46-4f9c-9801-92f1d820bea4',
+        month3: 'https://go.tribopay.com.br/yb1e4',
         month6: 'https://pay.kirvano.com/01e6e666-6539-4782-9001-b8543be981a8'
     },
     posts: [
