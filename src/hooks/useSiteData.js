@@ -9,7 +9,7 @@ const DEFAULT_DATA = {
         media: '367',
         likes: '75.9K'
     },
-    coverImage: 'https://images.unsplash.com/photo-1614850523296-d8c1af93d400?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    coverImage: '/cover.png',
     avatarImage: '/profile.png',
     postsCount: '821',
     mediaCount: '1.400',
@@ -32,10 +32,16 @@ export const useSiteData = () => {
         if (saved) {
             const parsed = JSON.parse(saved);
 
-            // Migration: If the user still has the old default avatar, force the new one
+            // Migration: If the user still has the old default avatar or cover, force the new ones
             const oldDefaultAvatar = 'https://randomuser.me/api/portraits/women/44.jpg';
+            const oldDefaultCover = 'https://images.unsplash.com/photo-1614850523296-d8c1af93d400?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80';
+
             if (parsed.avatarImage === oldDefaultAvatar || parsed.avatarImage === '/src/assets/profile.png') {
                 parsed.avatarImage = DEFAULT_DATA.avatarImage;
+            }
+
+            if (parsed.coverImage === oldDefaultCover) {
+                parsed.coverImage = DEFAULT_DATA.coverImage;
             }
 
             // Merge with DEFAULT_DATA
