@@ -32,7 +32,7 @@ function App() {
       <main className="container-inner d-lg-flex d-md-flex mx-auto">
         <div className="render-wrapper w-100">
           <ProfileHeader data={siteData} />
-          <SubscriptionPlans />
+          <SubscriptionPlans data={siteData} />
 
           <div className="feed-container">
             <PostCard data={siteData} />

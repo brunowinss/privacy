@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './AdminPanel.css';
 
-const AdminPanel = ({ siteData, updateField, updateStats, resetData, isAdmin, login, logout }) => {
+const AdminPanel = ({ siteData, updateField, updateStats, updatePaymentLink, resetData, isAdmin, login, logout }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [showLogin, setShowLogin] = useState(false);
     const [code, setCode] = useState('');
@@ -145,23 +145,23 @@ const AdminPanel = ({ siteData, updateField, updateStats, resetData, isAdmin, lo
                         <h4>Números e Contagem</h4>
                         <div className="stats-edit-grid">
                             <div className="form-group">
-                                <label>Posts</label>
+                                <label>Posts (ex: 821)</label>
                                 <input
                                     type="text"
-                                    value={siteData.stats.posts}
-                                    onChange={(e) => updateStats('posts', e.target.value)}
+                                    value={siteData.postsCount}
+                                    onChange={(e) => updateField('postsCount', e.target.value)}
                                 />
                             </div>
                             <div className="form-group">
-                                <label>Mídias</label>
+                                <label>Mídias (ex: 1.4k)</label>
                                 <input
                                     type="text"
-                                    value={siteData.stats.media}
-                                    onChange={(e) => updateStats('media', e.target.value)}
+                                    value={siteData.mediaCount}
+                                    onChange={(e) => updateField('mediaCount', e.target.value)}
                                 />
                             </div>
                             <div className="form-group">
-                                <label>Likes</label>
+                                <label>Likes (ex: 75.9k)</label>
                                 <input
                                     type="text"
                                     value={siteData.stats.likes}
@@ -171,9 +171,54 @@ const AdminPanel = ({ siteData, updateField, updateStats, resetData, isAdmin, lo
                         </div>
                     </div>
 
+                    <div className="admin-section">
+                        <h4>Links de Pagamento (Gateway)</h4>
+                        <div className="form-group">
+                            <label>Link de 1 mês</label>
+                            <input
+                                type="text"
+                                placeholder="https://..."
+                                value={siteData.paymentLinks.month1}
+                                onChange={(e) => updatePaymentLink('month1', e.target.value)}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label>Link de 3 meses</label>
+                            <input
+                                type="text"
+                                placeholder="https://..."
+                                value={siteData.paymentLinks.month3}
+                                onChange={(e) => updatePaymentLink('month3', e.target.value)}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label>Link de 6 meses</label>
+                            <input
+                                type="text"
+                                placeholder="https://..."
+                                value={siteData.paymentLinks.month6}
+                                onChange={(e) => updatePaymentLink('month6', e.target.value)}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="admin-section">
+                        <h4>Persistência Global</h4>
+                        <p style={{ fontSize: '12px', color: '#666', marginBottom: '10px' }}>
+                            As alterações no painel ficam salvas no seu navegador. Para salvar para **todos os usuários**, clique no botão abaixo e me envie o código gerado.
+                        </p>
+                        <button className="export-btn" onClick={() => {
+                            const data = JSON.stringify(siteData, null, 2);
+                            navigator.clipboard.writeText(data);
+                            alert('Código da configuração copiado! Me envie esse código no chat para eu salvar para todo mundo.');
+                        }}>
+                            Copiar Configuração para o Chat
+                        </button>
+                    </div>
+
                     <div className="admin-actions">
                         <button className="reset-btn" onClick={resetData}>Resetar Padrão</button>
-                        <button className="save-btn" onClick={() => setIsOpen(false)}>Salvar Alterações</button>
+                        <button className="save-btn" onClick={() => setIsOpen(false)}>Fechar Painel</button>
                     </div>
                 </div>
             </div>

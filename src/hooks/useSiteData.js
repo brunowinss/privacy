@@ -13,7 +13,12 @@ const DEFAULT_DATA = {
     avatarImage: 'https://randomuser.me/api/portraits/women/44.jpg',
     postsCount: '821',
     mediaCount: '1.400',
-    adminAccessCode: '1234'
+    adminAccessCode: '1234',
+    paymentLinks: {
+        month1: '',
+        month3: '',
+        month6: ''
+    }
 };
 
 export const useSiteData = () => {
@@ -49,6 +54,16 @@ export const useSiteData = () => {
         }));
     };
 
+    const updatePaymentLink = (plan, url) => {
+        setSiteData(prev => ({
+            ...prev,
+            paymentLinks: {
+                ...prev.paymentLinks,
+                [plan]: url
+            }
+        }));
+    };
+
     const resetData = () => {
         setSiteData(DEFAULT_DATA);
     };
@@ -63,5 +78,5 @@ export const useSiteData = () => {
 
     const logout = () => setIsAdmin(false);
 
-    return { siteData, updateField, updateStats, resetData, isAdmin, login, logout };
+    return { siteData, updateField, updateStats, updatePaymentLink, resetData, isAdmin, login, logout };
 };
