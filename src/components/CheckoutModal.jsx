@@ -32,12 +32,12 @@ const CheckoutModal = ({ isOpen, onClose, planName, planPrice, paymentUrl }) => 
                         <h2>Entrar</h2>
                         <p className="checkout-subtitle">Para assinar o perfil de <strong>{planName === 'Assinatura' ? 'beca barreto' : planName}</strong></p>
 
-                        <div className="social-logins">
-                            <button className="social-btn google">
+                        <div className="checkout-social-logins">
+                            <button className="checkout-social-btn google">
                                 <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" alt="" />
                                 Entrar com o Google
                             </button>
-                            <button className="social-btn facebook">
+                            <button className="checkout-social-btn facebook">
                                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
                                 Entrar com o Facebook
                             </button>
@@ -66,13 +66,13 @@ const CheckoutModal = ({ isOpen, onClose, planName, planPrice, paymentUrl }) => 
                                     required
                                 />
                             </div>
-                            <div className="forgot-password">
+                            <div className="checkout-forgot-password">
                                 <a href="#">Esqueceu a senha?</a>
                             </div>
                             <button type="submit" className="checkout-primary-btn">Entrar</button>
                         </form>
 
-                        <p className="signup-link">Não tem uma conta? <a href="#">Inscrever-se</a></p>
+                        <p className="checkout-signup-link">Não tem uma conta? <a href="#">Inscrever-se</a></p>
                     </div>
                 ) : (
                     <div className="checkout-body checkout-summary">
