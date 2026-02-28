@@ -16,8 +16,8 @@ const DEFAULT_DATA = {
     adminAccessCode: '1234',
     paymentLinks: {
         month1: 'https://app.syncpayments.com.br/payment-link/a12f4ba5-2f1f-4d4c-b41c-a07631718513',
-        month3: 'https://go.tribopay.com.br/yb1e4',
-        month6: 'https://go.tribopay.com.br/0ywzw'
+        month3: 'http://app.syncpayments.com.br/payment-link/a12f4d48-cebd-44a5-b6a6-c3502667a38a',
+        month6: 'https://app.syncpayments.com.br/payment-link/a12f4db8-83a7-4b0e-b870-cd74efb68cf4'
     },
     posts: [
         { id: 1, type: 'image', locked: true },
