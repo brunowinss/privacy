@@ -15,7 +15,7 @@ const DEFAULT_DATA = {
     mediaCount: '26',
     adminAccessCode: '1234',
     paymentLinks: {
-        month1: 'https://go.tribopay.com.br/mafba',
+        month1: 'https://app.syncpayments.com.br/payment-link/a12f4ba5-2f1f-4d4c-b41c-a07631718513',
         month3: 'https://go.tribopay.com.br/yb1e4',
         month6: 'https://go.tribopay.com.br/0ywzw'
     },
