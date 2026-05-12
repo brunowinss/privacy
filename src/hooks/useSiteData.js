@@ -34,7 +34,6 @@ export const useSiteData = () => {
 
             // Migration: If the user still has the old default avatar or cover, force the new ones
             const oldDefaultAvatar = 'https://randomuser.me/api/portraits/women/44.jpg';
-            const oldDefaultCover = 'https://images.unsplash.com/photo-1614850523296-d8c1af93d400?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80';
 
             if (parsed.avatarImage === oldDefaultAvatar || parsed.avatarImage === '/src/assets/profile.png') {
                 parsed.avatarImage = DEFAULT_DATA.avatarImage;
