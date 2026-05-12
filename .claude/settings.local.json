@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Copy-Item \"C:\\\\Users\\\\Bruno silva\\\\Downloads\\\\privacy-main\\\\ela_tirando_foto_202604211540.png\" -Destination \"C:\\\\Users\\\\Bruno silva\\\\Downloads\\\\privacy-main\\\\public\\\\profile.png\" -Force)"
+    ]
+  }
+}
